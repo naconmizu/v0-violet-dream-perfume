@@ -2,11 +2,20 @@
 
 import { ShoppingBag, Menu, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Logo } from "@/components/logo"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
@@ -18,7 +27,9 @@ export function Header() {
         </div>
       </div>
 
-      <header className="fixed top-[40px] left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-all duration-300 ${isScrolled ? "shadow-lg bg-background/95" : ""}`}
+      >
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
