@@ -29,7 +29,7 @@ export function FeaturedProducts() {
     <section id="produtos" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h3 className="text-4xl md:text-5xl font-serif mb-4 text-primary">Coleção Signature</h3>
+          <h3 className="text-4xl md:text-5xl font-serif mb-4 text-primary">Coleção Purple Soul</h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Perfumes artesanais que capturam a essência das frutas roxas mais refinadas
           </p>

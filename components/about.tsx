@@ -44,9 +44,7 @@ export function About() {
           </div>
 
           <div className="relative">
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <img src="/luxury-perfume-making-purple-fruits-botanical-labo.jpg" alt="Processo de criação" className="w-full h-full object-cover" />
-            </div>
+            
             <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-accent/20 rounded-full blur-3xl" />
             <div className="absolute -top-6 -right-6 w-48 h-48 bg-primary/20 rounded-full blur-3xl" />
           </div>

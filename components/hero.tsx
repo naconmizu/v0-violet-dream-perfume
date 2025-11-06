@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Sparkles } from "lucide-react"
+import Link from "next/link"
 
 export function Hero() {
   return (
@@ -14,7 +15,7 @@ export function Hero() {
 
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif mb-6 text-balance leading-tight">
             Essências que
-            <span className="block text-primary">Despertam Sonhos</span>
+            <span className="block text-[rgba(62,0,59,1)]">Despertam Sonhos</span>
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">
@@ -23,16 +24,18 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg">
+            <Button size="lg" className="bg-[#3E003B] hover:bg-[#3E003B]/90 text-white px-8 py-6 text-lg">
               Explorar Coleção
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg bg-transparent"
-            >
-              Conheça Nossa História
-            </Button>
+            <Link href="/historia">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg bg-transparent"
+              >
+                Conheça Nossa História
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
