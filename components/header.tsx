@@ -1,6 +1,6 @@
 "use client"
 
-import { ShoppingBag, Menu, LogOut } from "lucide-react"
+import { ShoppingBag, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 import { Logo } from "@/components/logo"
@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -32,7 +33,7 @@ export function Header() {
 
   return (
     <>
-      <div className="bg-accent/10 border-b border-accent/20">
+      <div className="hidden md:block bg-accent/10 border-b border-accent/20">
         <div className="container mx-auto px-4 py-2">
           <p className="text-center text-sm text-accent font-medium">
             Essências Naturais • Fragrâncias Exclusivas • Luxo Artesanal
@@ -44,44 +45,128 @@ export function Header() {
         className={`sticky top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""}`}
         style={{ backgroundColor: "#3E003B" }}
       >
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <button className="lg:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Menu">
-              <Menu className="w-6 h-6" />
-            </button>
+        <div className="container mx-auto px-4 py-3 md:py-4">
+          <div className="grid grid-cols-3 lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
+            {/* Menu mobile - esquerda */}
+            <div className="flex items-center justify-start lg:hidden">
+              <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
+                    <Menu className="w-5 h-5" />
+                    <span className="sr-only">Menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="w-[280px] sm:w-[320px]">
+                  <SheetHeader>
+                    <SheetTitle>Menu</SheetTitle>
+                  </SheetHeader>
+                  <nav className="flex flex-col gap-6 mt-8">
+                    <a
+                      href="/#produtos"
+                      className="text-base font-medium hover:text-accent transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Produtos
+                    </a>
+                    <a
+                      href="/#essencias"
+                      className="text-base font-medium hover:text-accent transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Essências
+                    </a>
+                    <a
+                      href="/#sobre"
+                      className="text-base font-medium hover:text-accent transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Sobre
+                    </a>
+                    <a
+                      href="/#contato"
+                      className="text-base font-medium hover:text-accent transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Contato
+                    </a>
+                    {user && (
+                      <>
+                        <div className="border-t pt-6 mt-2" />
+                        <Link
+                          href="/perfil"
+                          className="text-base font-medium hover:text-accent transition-colors"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Meu Perfil
+                        </Link>
+                        <button
+                          onClick={() => {
+                            logout()
+                            setIsMenuOpen(false)
+                          }}
+                          className="text-base font-medium hover:text-destructive transition-colors text-left"
+                        >
+                          Sair
+                        </button>
+                      </>
+                    )}
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
 
-            <div className="flex-1 flex justify-center">
+            {/* Logo - centro em mobile, centro em desktop */}
+            <div className="flex justify-center col-span-1">
               <Link href="/">
-                <Logo className="h-8 lg:h-10 w-auto" />
+                <Logo className="h-7 md:h-8 lg:h-10 w-auto" />
               </Link>
             </div>
 
-            <nav className="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
-              <a href="/#produtos" className="text-sm text-white/90 hover:text-accent transition-colors">
+            {/* Navegação Desktop - centro */}
+            <nav className="hidden lg:flex items-center justify-center gap-8">
+              <a
+                href="/#produtos"
+                className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap"
+              >
                 Produtos
               </a>
-              <a href="/#essencias" className="text-sm text-white/90 hover:text-accent transition-colors">
+              <a
+                href="/#essencias"
+                className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap"
+              >
                 Essências
               </a>
-              <a href="/#sobre" className="text-sm text-white/90 hover:text-accent transition-colors">
+              <a href="/#sobre" className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap">
                 Sobre
               </a>
-              <a href="/#contato" className="text-sm text-white/90 hover:text-accent transition-colors">
+              <a
+                href="/#contato"
+                className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap"
+              >
                 Contato
               </a>
             </nav>
 
-            <div className="flex items-center gap-4">
+            {/* Ações - direita */}
+            <div className="flex items-center justify-end gap-2 md:gap-3 lg:gap-4">
               <SearchDialog />
               <Button variant="ghost" size="icon" className="text-white hover:text-accent hover:bg-white/10">
-                <ShoppingBag className="w-5 h-5" />
+                <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="sr-only">Carrinho</span>
               </Button>
 
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="icon" className="relative text-white hover:bg-white/10">
-                      <Image src="/images/user-icon.png" alt="User" width={20} height={20} className="w-5 h-5 invert" />
+                      <Image
+                        src="/images/user-icon.png"
+                        alt="User"
+                        width={20}
+                        height={20}
+                        className="w-4 h-4 md:w-5 md:h-5 invert"
+                      />
+                      <span className="sr-only">Perfil</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-56">
@@ -105,7 +190,7 @@ export function Header() {
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={logout} className="cursor-pointer text-destructive">
-                      <LogOut className="w-4 h-4 mr-2" />
+                      <X className="w-4 h-4 mr-2" />
                       Sair
                     </DropdownMenuItem>
                   </DropdownMenuContent>
@@ -113,29 +198,19 @@ export function Header() {
               ) : (
                 <Button variant="ghost" size="icon" asChild className="text-white hover:bg-white/10 hover:text-accent">
                   <Link href="/login">
-                    <Image src="/images/user-icon.png" alt="Login" width={20} height={20} className="w-5 h-5 invert" />
+                    <Image
+                      src="/images/user-icon.png"
+                      alt="Login"
+                      width={20}
+                      height={20}
+                      className="w-4 h-4 md:w-5 md:h-5 invert"
+                    />
+                    <span className="sr-only">Login</span>
                   </Link>
                 </Button>
               )}
             </div>
           </div>
-
-          {isMenuOpen && (
-            <nav className="lg:hidden mt-4 pb-4 flex flex-col gap-4">
-              <a href="/#produtos" className="text-sm text-white/90 hover:text-accent transition-colors">
-                Produtos
-              </a>
-              <a href="/#essencias" className="text-sm text-white/90 hover:text-accent transition-colors">
-                Essências
-              </a>
-              <a href="/#sobre" className="text-sm text-white/90 hover:text-accent transition-colors">
-                Sobre
-              </a>
-              <a href="/#contato" className="text-sm text-white/90 hover:text-accent transition-colors">
-                Contato
-              </a>
-            </nav>
-          )}
         </div>
       </header>
     </>
