@@ -25,6 +25,18 @@ const essences = [
     color: "from-purple-800 to-purple-600",
     image: "/acai-berries-botanical-illustration-purple.jpg",
   },
+  {
+    fruit: "Figo Roxo",
+    description: "Fruta mediterrânea luxuosa com aroma adocicado e rico, trazendo elegância atemporal.",
+    color: "from-purple-900 to-purple-600",
+    image: "/purple-fig-fruit-botanical-illustration.jpg",
+  },
+  {
+    fruit: "Amora",
+    description: "Fruta silvestre com aroma intenso e doce, adiciona profundidade e frescor às composições.",
+    color: "from-purple-950 to-purple-700",
+    image: "/blackberry-fruit-botanical-illustration-purple.jpg",
+  },
 ]
 
 export function Essences() {
