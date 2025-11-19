@@ -33,17 +33,21 @@ export function Header() {
 
   return (
     <>
-      <div className="hidden md:block bg-accent/10 border-b border-accent/20">
+      <div className="hidden md:block bg-[#491D46] border-b border-[#D4AF37]/20">
         <div className="container mx-auto px-4 py-2">
-          <p className="text-center text-sm text-accent font-medium">
-            Essências Naturais • Fragrâncias Exclusivas • Luxo Artesanal
+          <p className="text-center text-sm font-medium">
+            <span className="text-white">Essências Naturais</span>
+            <span className="text-[#D4AF37] mx-2">•</span>
+            <span className="text-[#D4AF37]">Fragrâncias Exclusivas</span>
+            <span className="text-[#D4AF37] mx-2">•</span>
+            <span className="text-white">Luxo Artesanal</span>
           </p>
         </div>
       </div>
 
       <header
-        className={`sticky top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/10 transition-all duration-300 ${isScrolled ? "shadow-lg" : ""}`}
-        style={{ backgroundColor: "#3E003B" }}
+        className={`sticky top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-primary/20 transition-all duration-300 ${isScrolled ? "shadow-lg shadow-primary/10" : ""}`}
+        style={{ backgroundColor: "#491D46" }}
       >
         <div className="container mx-auto px-4 py-3 md:py-4">
           <div className="grid grid-cols-3 lg:grid-cols-[1fr_auto_1fr] items-center gap-4">

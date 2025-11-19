@@ -104,6 +104,166 @@ const fragrances = [
     season: "Todas as Estações",
     occasion: "Versátil, Statement",
   },
+  {
+    slug: "acai-nebular",
+    name: "Acaí Nebular",
+    tagline: "Energia Tropical em Forma de Fragrância",
+    description: "Essência vibrante que combina doçura tropical com notas terrosas",
+    price: "R$ 203,00",
+    image: "/perfumeFei.png",
+    fullDescription:
+      "Acaí Nebular é uma celebração da riqueza amazônica, combinando a doçura única do açaí com notas terrosas profundas. Uma fragrância que transporta para a exuberância tropical com elegância contemporânea.",
+    notes: {
+      top: ["Açaí", "Maracujá", "Limão Tahiti"],
+      middle: ["Jasmim", "Ylang-Ylang", "Pimenta Rosa"],
+      base: ["Vetiver", "Patchouli", "Cacau", "Madeira de Cedro"],
+    },
+    intensity: "Média",
+    longevity: "8-10 horas",
+    sillage: "Moderado a Forte",
+    season: "Primavera/Verão",
+    occasion: "Diurno, Casual Elegante",
+  },
+  {
+    slug: "mirtilo-elegant",
+    name: "Mirtilo Élégant",
+    tagline: "Delicadeza e Sofisticação em Cada Nota",
+    description: "Fragrância refrescante com notas delicadas de mirtilo e acordes florais",
+    price: "R$ 279,00",
+    image: "/blueberry-perfume-bottle-elegant-purple.jpg",
+    fullDescription:
+      "Mirtilo Élégant captura a essência refinada do mirtilo em uma composição delicada e sofisticada. Notas florais harmoniosas complementam a frescura natural da fruta, criando uma fragrância elegante e atemporal.",
+    notes: {
+      top: ["Mirtilo", "Groselha Branca", "Bergamota"],
+      middle: ["Rosa Branca", "Lírio do Vale", "Peônia"],
+      base: ["Almíscar Branco", "Sândalo", "Âmbar Suave"],
+    },
+    intensity: "Leve a Média",
+    longevity: "6-8 horas",
+    sillage: "Moderado",
+    season: "Primavera/Verão",
+    occasion: "Diurno, Elegante Casual",
+  },
+  {
+    slug: "cereja-roxo-romantica",
+    name: "Cereja Roxa Romântica",
+    tagline: "Romance e Feminilidade em Essência",
+    description: "Perfume feminino e sofisticado com notas suaves de cereja roxa e pétalas",
+    price: "R$ 299,00",
+    image: "/purple-cherry-perfume-bottle-romantic.jpg",
+    fullDescription:
+      "Cereja Roxa Romântica é uma fragrância que celebra a feminilidade com elegância. Notas suaves de cereja roxa se entrelaçam com pétalas florais, criando uma experiência olfativa romântica e sofisticada.",
+    notes: {
+      top: ["Cereja Roxa", "Pêssego", "Framboesa"],
+      middle: ["Rosa de Maio", "Violeta", "Íris"],
+      base: ["Baunilha", "Almíscar", "Madeira de Cerejeira"],
+    },
+    intensity: "Média",
+    longevity: "8-10 horas",
+    sillage: "Moderado",
+    season: "Todas as Estações",
+    occasion: "Romântico, Encontros Especiais",
+  },
+  {
+    slug: "groselha-negra-noir",
+    name: "Groselha Negra Noir",
+    tagline: "Intensidade e Caráter Único",
+    description: "Essência intensa e marcante com profundidade e caráter único",
+    price: "R$ 319,00",
+    image: "/black-currant-perfume-bottle-luxury.jpg",
+    fullDescription:
+      "Groselha Negra Noir é uma fragrância ousada e marcante que celebra a intensidade única da groselha negra. Notas terrosas e profundas criam uma experiência olfativa poderosa e memorável.",
+    notes: {
+      top: ["Groselha Negra", "Cassis", "Pimenta Preta"],
+      middle: ["Rosa Negra", "Gerânio", "Cipreste"],
+      base: ["Patchouli", "Vetiver", "Couro", "Tabaco"],
+    },
+    intensity: "Intensa",
+    longevity: "12+ horas",
+    sillage: "Muito Forte",
+    season: "Outono/Inverno",
+    occasion: "Noturno, Ousado",
+  },
+  {
+    slug: "ameixa-seca-royal",
+    name: "Ameixa Seca Royal",
+    tagline: "Complexidade Real em Cada Gota",
+    description: "Fragrância rica e complexa com notas concentradas e elegantes",
+    price: "R$ 339,00",
+    image: "/dried-plum-perfume-bottle-royal.jpg",
+    fullDescription:
+      "Ameixa Seca Royal é uma fragrância opulenta que celebra a complexidade da ameixa seca. Notas concentradas e ricas se desenvolvem em uma composição elegante e sofisticada, digna de realeza.",
+    notes: {
+      top: ["Ameixa Seca", "Rum", "Canela"],
+      middle: ["Rosa Damascena", "Orquídea", "Heliotrópio"],
+      base: ["Baunilha Bourbon", "Âmbar", "Benjoim", "Sândalo"],
+    },
+    intensity: "Intensa",
+    longevity: "12+ horas",
+    sillage: "Forte",
+    season: "Outono/Inverno",
+    occasion: "Ocasiões Especiais, Luxuoso",
+  },
+  {
+    slug: "sabugueiro-mystic",
+    name: "Sabugueiro Mystic",
+    tagline: "Mistério e Exotismo em Essência",
+    description: "Perfume exótico e memorável com notas florais e frutadas únicas",
+    price: "R$ 289,00",
+    image: "/elderberry-perfume-bottle-mystic.jpg",
+    fullDescription:
+      "Sabugueiro Mystic é uma fragrância exótica que captura o mistério único da baga de sabugueiro. Notas florais e frutadas se combinam em uma composição memorável e intrigante.",
+    notes: {
+      top: ["Baga de Sabugueiro", "Pera", "Lima"],
+      middle: ["Flor de Sabugueiro", "Jasmim", "Tuberosa"],
+      base: ["Almíscar", "Madeira de Sândalo", "Mel"],
+    },
+    intensity: "Média a Intensa",
+    longevity: "8-10 horas",
+    sillage: "Moderado a Forte",
+    season: "Todas as Estações",
+    occasion: "Versátil, Exótico",
+  },
+  {
+    slug: "aronia-power",
+    name: "Aronia Power",
+    tagline: "Energia e Vitalidade em Forma de Fragrância",
+    description: "Essência energética e vibrante com notas intensas e antioxidantes",
+    price: "R$ 259,00",
+    image: "/aronia-perfume-bottle-power.jpg",
+    fullDescription:
+      "Aronia Power é uma fragrância vibrante que celebra a energia da superfruta aronia. Notas intensas e antioxidantes criam uma experiência olfativa revigorante e cheia de vitalidade.",
+    notes: {
+      top: ["Aronia", "Açaí", "Groselha"],
+      middle: ["Gengibre", "Cardamomo", "Pimenta Rosa"],
+      base: ["Vetiver", "Cedro", "Almíscar"],
+    },
+    intensity: "Média a Intensa",
+    longevity: "8-10 horas",
+    sillage: "Moderado a Forte",
+    season: "Todas as Estações",
+    occasion: "Diurno, Energético",
+  },
+  {
+    slug: "mirtilo-vermelho-fresh",
+    name: "Mirtilo Vermelho Fresh",
+    tagline: "Frescor e Vivacidade em Cada Nota",
+    description: "Fragrância fresca e vivaz com combinação única de doçura e acidez",
+    price: "R$ 249,00",
+    image: "/cranberry-perfume-bottle-fresh.jpg",
+    fullDescription:
+      "Mirtilo Vermelho Fresh é uma fragrância que celebra a vivacidade única do mirtilo vermelho. A combinação perfeita entre doçura e acidez cria uma experiência olfativa fresca e revigorante.",
+    notes: {
+      top: ["Mirtilo Vermelho", "Laranja", "Limão"],
+      middle: ["Rosa", "Jasmim", "Lavanda"],
+      base: ["Almíscar", "Sândalo", "Cedro"],
+    },
+    intensity: "Leve a Média",
+    longevity: "6-8 horas",
+    sillage: "Moderado",
+    season: "Primavera/Verão",
+    occasion: "Diurno, Casual Fresco",
+  },
 ]
 
 export default function FragrancePage({ params }: { params: { slug: string } }) {
@@ -150,7 +310,7 @@ export default function FragrancePage({ params }: { params: { slug: string } }) 
               </div>
 
               <div className="flex gap-3 pt-4">
-                <Button size="lg" className="bg-[#3E003B] hover:bg-[#3E003B]/90 text-white flex-1">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1">
                   <ShoppingCart className="w-5 h-5 mr-2" />
                   Adicionar ao Carrinho
                 </Button>
@@ -258,7 +418,7 @@ export default function FragrancePage({ params }: { params: { slug: string } }) 
             Descubra a magia de {fragrance.name} e deixe-se envolver por esta fragrância única
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-[#3E003B] hover:bg-[#3E003B]/90 text-white">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <ShoppingCart className="w-5 h-5 mr-2" />
               Comprar Agora
             </Button>

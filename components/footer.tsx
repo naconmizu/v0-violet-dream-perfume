@@ -2,8 +2,13 @@ import { Instagram, Facebook, Mail } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="bg-muted/30 border-t border-border py-12">
-      <div className="container mx-auto px-4">
+    <footer className="border-t border-border py-12 relative overflow-hidden" style={{
+      background: 'linear-gradient(180deg, hsl(305 20% 96%) 0%, hsl(305 18% 97%) 100%)'
+    }}>
+      {/* Padrão de fundo decorativo */}
+      <div className="absolute inset-0 bg-pattern-dots opacity-15"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
             <h4 className="text-2xl font-rif mb-4">
