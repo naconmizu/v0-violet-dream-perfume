@@ -6,7 +6,7 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h4 className="text-2xl font-serif mb-4">
+            <h4 className="text-2xl font-rif mb-4">
               <span className="text-primary">Violet</span>
               <span className="text-accent"> Dream</span>
             </h4>

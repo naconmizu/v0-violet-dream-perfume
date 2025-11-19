@@ -5,14 +5,34 @@ import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import sendEmail from "@/app/util/sendMail"
 
 export function Newsletter() {
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<'idle'|'sending'|'success'|'error'>('idle')
+  const [message, setMessage] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Newsletter signup:", email)
-    setEmail("")
+    setStatus('sending')
+    setMessage(null)
+    try {
+      const res = await sendEmail(email)
+      if (res && res.success) {
+        setStatus('success')
+        setMessage(res.message || 'Inscrição realizada com sucesso!')
+      } else {
+        setStatus('error')
+        setMessage(res?.message || 'Falha ao inscrever.')
+      }
+    } catch (err) {
+      setStatus('error')
+      setMessage('Erro ao enviar. Tente novamente mais tarde.')
+    } finally {
+      setEmail("")
+    }
   }
 
   return (
@@ -33,10 +53,13 @@ export function Newsletter() {
               className="flex-1 bg-primary-foreground text-foreground border-0"
               required
             />
-            <Button type="submit" size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              Inscrever-se
+            <Button type="submit" size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground" disabled={status === 'sending'}>
+              {status === 'sending' ? 'Enviando...' : 'Inscrever-se'}
             </Button>
           </form>
+          {message && (
+            <p className={`mt-4 text-sm ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}>{message}</p>
+          )}
         </div>
       </div>
     </section>

@@ -39,6 +39,14 @@ const products = [
     image: "/blackberry-perfume-bottle-purple-gold-luxury.jpg",
     slug: "amora-sublime",
   },
+
+  {
+    name: "Acaí nebular",
+    description: "Essência vibrante que combina doçura tropical com notas terrosas.",
+    price: "R$ 203,00",
+    image: "/perfumeFei.png",
+    slug: "acai-nebular",
+  },
 ]
 
 export function FeaturedProducts() {
