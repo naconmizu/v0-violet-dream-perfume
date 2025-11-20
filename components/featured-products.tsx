@@ -101,7 +101,7 @@ const products = [
 export function FeaturedProducts() {
   return (
     <section id="produtos" className="py-24 relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, hsl(305 20% 96%) 0%, hsl(305 25% 94%) 100%)'
+      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
       <div className="absolute inset-0 bg-pattern-waves opacity-30"></div>

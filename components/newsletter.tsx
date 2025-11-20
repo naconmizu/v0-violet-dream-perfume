@@ -72,11 +72,27 @@ export function Newsletter() {
               placeholder="Seu melhor e-mail"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-primary-foreground text-foreground border-0"
+              className="flex-1 bg-primary-foreground text-foreground border-0 h-12"
               required
+              style={{
+                background: 'linear-gradient(#491D46, #491D46) padding-box, linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37) border-box',
+                border: '2px solid transparent',
+                backgroundClip: 'padding-box, border-box',
+              }}
             />
-            <Button type="submit" size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl hover:shadow-accent/30 transition-all duration-300" disabled={status === 'sending'}>
-              {status === 'sending' ? 'Enviando...' : 'Inscrever-se'}
+            <Button 
+              type="submit" 
+              // size="lg" 
+              className="relative bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl hover:shadow-accent/30 transition-all duration-300 overflow-hidden group border-2 border-transparent h-12" 
+              disabled={status === 'sending'}
+              style={{
+                background: 'linear-gradient(#491D46, #491D46) padding-box, linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37) border-box',
+                border: '2px solid transparent',
+                backgroundClip: 'padding-box, border-box',
+              }}
+            >
+              <span className="relative z-10">{status === 'sending' ? 'Enviando...' : 'Inscrever-se'}</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </Button>
           </form>
           {message && (

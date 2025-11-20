@@ -3,7 +3,7 @@ import { Sparkles, Leaf, Award, Heart, Flower2, Gem } from "lucide-react"
 export function About() {
   return (
     <section id="sobre" className="py-24 relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, hsl(305 22% 96%) 0%, hsl(305 18% 97%) 50%, hsl(305 25% 95%) 100%)'
+      background: 'linear-gradient(135deg, hsl(305 35% 7%) 0%, hsl(305 30% 8%) 50%, hsl(305 40% 6%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
       <div className="absolute inset-0 bg-pattern-mesh opacity-50"></div>

@@ -84,7 +84,7 @@ const essences = [
 export function Essences() {
   return (
     <section id="essencias" className="py-24 relative overflow-hidden" style={{
-      background: 'linear-gradient(180deg, hsl(305 18% 97%) 0%, hsl(305 22% 94%) 50%, hsl(305 18% 97%) 100%)'
+      background: 'linear-gradient(180deg, hsl(305 30% 8%) 0%, hsl(305 35% 6%) 50%, hsl(305 30% 8%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
       <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>

@@ -122,12 +122,14 @@
     @apply text-foreground;
     font-family: "Playfair Display", Georgia, serif;
     background: 
-      linear-gradient(135deg, hsl(305 15% 98%) 0%, hsl(305 20% 96%) 50%, hsl(305 15% 98%) 100%),
-      radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.08) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.06) 0%, transparent 50%),
-      radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.04) 1px, transparent 0);
-    background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px;
+      linear-gradient(135deg, hsl(305 30% 8%) 0%, hsl(305 35% 6%) 25%, hsl(305 32% 7%) 50%, hsl(305 38% 5%) 75%, hsl(305 30% 8%) 100%),
+      radial-gradient(ellipse at 20% 30%, hsl(var(--primary) / 0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 70%, hsl(var(--accent) / 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 50% 50%, hsl(var(--primary) / 0.08) 0%, transparent 80%),
+      radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.06) 1px, transparent 0);
+    background-size: 100% 100%, 120% 120%, 120% 120%, 100% 100%, 40px 40px;
     background-attachment: fixed;
+    background-position: 0% 0%, -10% -10%, 10% 10%, 0% 0%, 0% 0%;
   }
 }
 

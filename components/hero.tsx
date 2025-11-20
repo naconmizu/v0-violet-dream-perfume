@@ -5,7 +5,7 @@ import Link from "next/link"
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[120px]" style={{
-      background: 'linear-gradient(135deg, hsl(305 25% 97%) 0%, hsl(305 20% 95%) 25%, hsl(305 18% 96%) 50%, hsl(305 22% 95%) 75%, hsl(305 25% 97%) 100%)'
+      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 25%, hsl(305 35% 6%) 50%, hsl(305 40% 4%) 75%, hsl(305 32% 7%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
       <div className="absolute inset-0 bg-pattern-mesh opacity-40"></div>
@@ -51,14 +51,16 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300">
+            <Button
+              size="lg"
+              className="bg-primary border-2 border-accent hover:border-[gold] hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 transition-all duration-300"
+              >
               Explorar Coleção
             </Button>
             <Link href="/historia">
               <Button
                 size="lg"
-                variant="outline"
-                className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg bg-transparent"
+                className="border-2 border-accent text-accent hover:border-[gold] hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg bg-transparent transition-all duration-300"
               >
                 Conheça Nossa História
               </Button>
