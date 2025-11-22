@@ -3,24 +3,29 @@ import { Sparkles, Leaf, Award, Heart, Flower2, Gem } from "lucide-react"
 export function About() {
   return (
     <section id="sobre" className="py-24 relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, hsl(305 35% 7%) 0%, hsl(305 30% 8%) 50%, hsl(305 40% 6%) 100%)'
+      // background: 'linear-gradient(135deg, hsl(305 35% 7%) 0%, hsl(305 30% 8%) 50%, hsl(305 40% 6%) 100%)'
+      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
+
     }}>
       {/* Padrão de fundo decorativo */}
       <div className="absolute inset-0 bg-pattern-mesh opacity-50"></div>
-      
+
       {/* Padrão SVG decorativo floral */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.02]" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute inset-0 w-full h-full opacity-[0.12]" xmlns="http://www.w3.org/2000/svg" style={{ pointerEvents: 'none' }}>
         <defs>
           <pattern id="about-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-            <circle cx="60" cy="60" r="3" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary"/>
-            <circle cx="30" cy="30" r="2" fill="currentColor" className="text-accent" opacity="0.4"/>
-            <circle cx="90" cy="90" r="2" fill="currentColor" className="text-accent" opacity="0.4"/>
-            <path d="M60 20 Q80 40 60 60 Q40 40 60 20" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-primary" opacity="0.3"/>
+            <circle cx="60" cy="60" r="3" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
+            <circle cx="30" cy="30" r="2" fill="hsl(var(--accent))" opacity="0.6" />
+            <circle cx="90" cy="90" r="2" fill="hsl(var(--accent))" opacity="0.6" />
+            <circle cx="30" cy="90" r="1.5" fill="hsl(var(--primary))" opacity="0.4" />
+            <circle cx="90" cy="30" r="1.5" fill="hsl(var(--primary))" opacity="0.4" />
+            <path d="M60 20 Q80 40 60 60 Q40 40 60 20" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.3" opacity="0.5" />
+            <path d="M20 60 Q40 80 60 60 Q40 40 20 60" fill="none" stroke="hsl(var(--accent))" strokeWidth="0.3" opacity="0.4" />
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#about-pattern)"/>
+        <rect width="100%" height="100%" fill="url(#about-pattern)" />
       </svg>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         {/* Título principal */}
         <div className="text-center mb-16">

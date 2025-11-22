@@ -73,9 +73,12 @@ export function GoldCollection() {
     <section
       id="colecao-dourada"
       className="py-24 relative overflow-hidden"
+      // style={{
+      //   background:
+      //     "linear-gradient(145deg, hsl(40 40% 12%) 0%, hsl(32 32% 8%) 60%, hsl(28 30% 6%) 100%)",
+      // }}
       style={{
-        background:
-          "linear-gradient(145deg, hsl(40 40% 12%) 0%, hsl(32 32% 8%) 60%, hsl(28 30% 6%) 100%)",
+        background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
       }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_1px,_transparent_1px)] [background-size:70px_70px] opacity-40" />

@@ -36,7 +36,9 @@ export function Newsletter() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-primary/95 to-accent/80 text-primary-foreground relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-primary via-primary/95 to-accent/80 text-primary-foreground relative overflow-hidden" style={{
+      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
+    }}>
       {/* Padrão de grid decorativo */}
       <div className="absolute inset-0 bg-pattern-grid opacity-10"></div>
       
