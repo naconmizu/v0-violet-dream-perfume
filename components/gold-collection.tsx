@@ -8,6 +8,7 @@ const goldFragrances = [
     highlight: "Cítrica especiada",
     essences: ["Bergamota Dourada", "Pimenta Rosa", "Âmbar Solar"],
     color: "from-[#f6d365] via-[#fda085] to-[#f6d365]",
+    image: "/GoldCollection/ouro-solar-perfume.jpg",
   },
   {
     name: "Mel de Safra",
@@ -16,6 +17,7 @@ const goldFragrances = [
     highlight: "Gourmand floral",
     essences: ["Mel de Acácia", "Flor de Laranjeira", "Sândalo Creme"],
     color: "from-[#f1c27d] via-[#d89c5c] to-[#8c5a2b]",
+    image: "/GoldCollection/mel-safra-perfume.jpg",
   },
   {
     name: "Âmbar Aurora",
@@ -24,6 +26,7 @@ const goldFragrances = [
     highlight: "Resinosa sofisticada",
     essences: ["Âmbar Vivo", "Figo Dourado", "Incenso Branco"],
     color: "from-[#f2c94c] via-[#c27a36] to-[#5b2c0e]",
+    image: "/GoldCollection/amber-aurora-perfume.jpg",
   },
   {
     name: "Champanhe Velours",
@@ -32,6 +35,7 @@ const goldFragrances = [
     highlight: "Efervescente suave",
     essences: ["Pera Cristal", "Champanhe Rosé", "Almíscar Cremoso"],
     color: "from-[#ffe29f] via-[#ffa99f] to-[#ffd8cb]",
+    image: "/GoldCollection/champagne-velours-perfume.jpg",
   },
 ]
 
@@ -73,13 +77,13 @@ export function GoldCollection() {
     <section
       id="colecao-dourada"
       className="py-24 relative overflow-hidden"
-      // style={{
-      //   background:
-      //     "linear-gradient(145deg, hsl(40 40% 12%) 0%, hsl(32 32% 8%) 60%, hsl(28 30% 6%) 100%)",
-      // }}
       style={{
-        background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
+        background:
+          "linear-gradient(145deg, hsl(40 40% 12%) 0%, hsl(32 32% 8%) 60%, hsl(28 30% 6%) 100%)",
       }}
+      // style={{
+      //   background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
+      // }}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_1px,_transparent_1px)] [background-size:70px_70px] opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#f6d3650f] via-transparent to-[#a76b320d]" />
@@ -108,14 +112,21 @@ export function GoldCollection() {
               <div
                 className={`relative aspect-[4/5] bg-gradient-to-br ${fragrance.color} overflow-hidden`}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
-                <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.6)_0%,_transparent_55%)] opacity-40 mix-blend-screen" />
-                <div className="absolute top-4 right-4 text-[0.65rem] uppercase tracking-[0.35em] text-white/70">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                {fragrance.image && (
+                  <img
+                    src={fragrance.image}
+                    alt={fragrance.name}
+                    className="w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500"
+                  />
+                )}
+                <div className="absolute inset-0 mix-blend-lighten opacity-30 bg-[radial-gradient(circle,_rgba(255,255,255,0.6)_0%,_transparent_60%)]" />
+                <div className="absolute top-4 right-4 text-xs uppercase tracking-[0.35em] text-white/65">
                   Aurum
                 </div>
                 <div className="absolute bottom-6 left-6">
-                  <p className="text-xs text-white/70 uppercase tracking-[0.4em]">
-                    Perfil
+                  <p className="text-xs text-white/65 uppercase tracking-[0.35em]">
+                    Notas principais
                   </p>
                   <p className="text-lg font-serif text-white">
                     {fragrance.highlight}

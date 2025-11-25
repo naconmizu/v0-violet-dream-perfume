@@ -42,7 +42,9 @@ export function Hero() {
 
           <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif mb-6 text-balance leading-tight">
             Essências que
-            <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">Despertam Sonhos</span>
+            <span className="block bg-gradient-to-r from-[#D4AF37] via-[#F4E5C3] to-[#D4AF37] bg-clip-text text-transparent drop-shadow-[0_2px_16px_rgba(212,175,55,0.15)] animate-gold-shimmer">
+              Despertam Sonhos
+            </span>
           </h2>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed">

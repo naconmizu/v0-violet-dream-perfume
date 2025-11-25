@@ -51,7 +51,7 @@ const products = [
     name: "Mirtilo Élégant",
     description: "Fragrância refrescante com notas delicadas de mirtilo e acordes florais",
     price: "R$ 279,00",
-    image: "/blueberry-perfume-bottle-elegant-purple.jpg",
+    image: "/mirtiloFei.jpeg",
     slug: "mirtilo-elegant",
   },
   {
@@ -72,14 +72,14 @@ const products = [
     name: "Ameixa Seca Royal",
     description: "Fragrância rica e complexa com notas concentradas e elegantes",
     price: "R$ 339,00",
-    image: "/dried-plum-perfume-bottle-royal.jpg",
+    image: "/ameixaFeia.jpg",
     slug: "ameixa-seca-royal",
   },
   {
     name: "Sabugueiro Mystic",
     description: "Perfume exótico e memorável com notas florais e frutadas únicas",
     price: "R$ 289,00",
-    image: "/elderberry-perfume-bottle-mystic.jpg",
+    image: "/sabugoFei.jpg",
     slug: "sabugueiro-mystic",
   },
   {
@@ -89,13 +89,13 @@ const products = [
     image: "/aronia-perfume-bottle-power.jpg",
     slug: "aronia-power",
   },
-  {
-    name: "Mirtilo Vermelho Fresh",
-    description: "Fragrância fresca e vivaz com combinação única de doçura e acidez",
-    price: "R$ 249,00",
-    image: "/cranberry-perfume-bottle-fresh.jpg",
-    slug: "mirtilo-vermelho-fresh",
-  },
+  // {
+  //   name: "Mirtilo Vermelho Fresh",
+  //   description: "Fragrância fresca e vivaz com combinação única de doçura e acidez",
+  //   price: "R$ 249,00",
+  //   image: "/cranberry-perfume-bottle-fresh.jpg",
+  //   slug: "mirtilo-vermelho-fresh",
+  // },
 ]
 
 export function FeaturedProducts() {
@@ -122,7 +122,7 @@ export function FeaturedProducts() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h3 className="text-4xl md:text-5xl font-serif mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Coleção Purple Soul</h3>
+          <h3 className="text-4xl md:text-5xl font-serif mb-4 bg-gradient-to-r from-[gold] via-[#F4E5C3] to-[gold] bg-clip-text text-transparent ">Coleção Purple Soul</h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Perfumes artesanais que capturam a essência das frutas roxas mais refinadas
           </p>

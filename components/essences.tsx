@@ -37,48 +37,48 @@ const essences = [
     color: "from-[#3A1536] to-[#6B2D66]",
     image: "/blackberry-fruit-botanical-illustration-purple.jpg",
   },
-  {
-    fruit: "Mirtilo",
-    description: "Fruta delicada com notas refrescantes e levemente ácidas, trazendo sofisticação e elegância.",
-    color: "from-[#4A1F45] to-[#6B2D66]",
-    image: "/blueberry-fruit-botanical-illustration-purple.jpg",
-  },
-  {
-    fruit: "Cereja Roxa",
-    description: "Notas suaves e adocicadas que evocam romance e feminilidade com toque de sofisticação.",
-    color: "from-[#5A2555] to-[#7A3D75]",
-    image: "/purple-cherry-fruit-botanical-illustration.jpg",
-  },
-  {
-    fruit: "Groselha Negra",
-    description: "Essência intensa e marcante com notas terrosas e profundas, ideal para perfumes ousados.",
-    color: "from-[#3A1536] to-[#5A2555]",
-    image: "/black-currant-fruit-botanical-illustration.jpg",
-  },
-  {
-    fruit: "Ameixa Seca",
-    description: "Notas concentradas e doces que trazem profundidade e complexidade às composições.",
-    color: "from-[#491D46] to-[#6B2D66]",
-    image: "/dried-plum-botanical-illustration.jpg",
-  },
-  {
-    fruit: "Baga de Sabugueiro",
-    description: "Aroma único e exótico com notas florais e frutadas, criando fragrâncias memoráveis.",
-    color: "from-[#5A2555] to-[#8B4D85]",
-    image: "/elderberry-fruit-botanical-illustration.jpg",
-  },
-  {
-    fruit: "Aronia",
-    description: "Superfruta com notas intensas e antioxidantes, adiciona vigor e energia às fragrâncias.",
-    color: "from-[#3A1536] to-[#491D46]",
-    image: "/aronia-berry-botanical-illustration.jpg",
-  },
-  {
-    fruit: "Mirtilo Vermelho",
-    description: "Combinação única de doçura e acidez, trazendo frescor e vivacidade às composições.",
-    color: "from-[#6B2D66] to-[#8B4D85]",
-    image: "/cranberry-fruit-botanical-illustration.jpg",
-  },
+  // {
+  //   fruit: "Mirtilo",
+  //   description: "Fruta delicada com notas refrescantes e levemente ácidas, trazendo sofisticação e elegância.",
+  //   color: "from-[#4A1F45] to-[#6B2D66]",
+  //   image: "/blueberry-fruit-botanical-illustration-purple.jpg",
+  // },
+  // {
+  //   fruit: "Cereja Roxa",
+  //   description: "Notas suaves e adocicadas que evocam romance e feminilidade com toque de sofisticação.",
+  //   color: "from-[#5A2555] to-[#7A3D75]",
+  //   image: "/purple-cherry-fruit-botanical-illustration.jpg",
+  // },
+  // {
+  //   fruit: "Groselha Negra",
+  //   description: "Essência intensa e marcante com notas terrosas e profundas, ideal para perfumes ousados.",
+  //   color: "from-[#3A1536] to-[#5A2555]",
+  //   image: "/black-currant-fruit-botanical-illustration.jpg",
+  // },
+  // {
+  //   fruit: "Ameixa Seca",
+  //   description: "Notas concentradas e doces que trazem profundidade e complexidade às composições.",
+  //   color: "from-[#491D46] to-[#6B2D66]",
+  //   image: "/dried-plum-botanical-illustration.jpg",
+  // },
+  // {
+  //   fruit: "Baga de Sabugueiro",
+  //   description: "Aroma único e exótico com notas florais e frutadas, criando fragrâncias memoráveis.",
+  //   color: "from-[#5A2555] to-[#8B4D85]",
+  //   image: "/elderberry-fruit-botanical-illustration.jpg",
+  // },
+  // {
+  //   fruit: "Aronia",
+  //   description: "Superfruta com notas intensas e antioxidantes, adiciona vigor e energia às fragrâncias.",
+  //   color: "from-[#3A1536] to-[#491D46]",
+  //   image: "/aronia-berry-botanical-illustration.jpg",
+  // },
+  // {
+  //   fruit: "Mirtilo Vermelho",
+  //   description: "Combinação única de doçura e acidez, trazendo frescor e vivacidade às composições.",
+  //   color: "from-[#6B2D66] to-[#8B4D85]",
+  //   image: "/cranberry-fruit-botanical-illustration.jpg",
+  // },
 ]
 
 export function Essences() {
@@ -107,7 +107,7 @@ export function Essences() {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h3 className="text-4xl md:text-5xl font-serif mb-4 text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h3 className="text-4xl md:text-5xl font-serif mb-4 bg-gradient-to-r from-[#D4AF37] via-[#F4E5C3] to-[#D4AF37] bg-clip-text text-transparent ">
             Nossas Essências
           </h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">

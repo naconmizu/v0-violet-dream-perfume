@@ -17,7 +17,7 @@ const redFragrances = [
     highlight: "Suculenta e envolvente",
     essences: ["Romã Rubra", "Cerejeira Escarlate", "Baunilha Dourada"],
     color: "from-[#4a060c] via-[#280306] to-[#0b0102]",
-    image: "/placeholder.jpg",
+    image: "/RedCollection/pomegranate-royale-perfume.jpg",
   },
   {
     name: "Pitanga Aurora",
@@ -26,7 +26,7 @@ const redFragrances = [
     highlight: "Vibrante e especiada",
     essences: ["Pitanga", "Cardamomo Rosé", "Fava Tonka"],
     color: "from-[#6c111c] via-[#36060b] to-[#140204]",
-    image: "/placeholder.jpg",
+    image: "/RedCollection/pitanga-aurora-perfume.jpg",
   },
   {
     name: "Hibisco Rubro",
@@ -35,7 +35,7 @@ const redFragrances = [
     highlight: "Floral âmbar",
     essences: ["Hibisco Carmim", "Rosa Damascena", "Chá Preto"],
     color: "from-[#3e0810] via-[#1e0307] to-[#080104]",
-    image: "/placeholder.jpg",
+    image: "/RedCollection/hibiscus-ruby-perfume.jpg",
   },
 ]
 
