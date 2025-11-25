@@ -31,3 +31,4 @@ dockerfile
 docker-compose.yaml
 
 .vscode/
+*.zip
