@@ -1,11 +1,12 @@
 "use client"
 
-import { ShoppingBag, Menu, X } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 import { Logo } from "@/components/logo"
 import { useAuth } from "@/contexts/auth-context"
 import { SearchDialog } from "@/components/search-dialog"
+import { CartSheet } from "@/components/cart-sheet"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -86,13 +87,13 @@ export function Header() {
                     >
                       Sobre
                     </a>
-                    <a
-                      href="/#contato"
+                    <Link
+                      href="/contato"
                       className="text-base font-medium hover:text-accent transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Contato
-                    </a>
+                    </Link>
                     {user && (
                       <>
                         <div className="border-t pt-6 mt-2" />
@@ -143,21 +144,18 @@ export function Header() {
               <a href="/#sobre" className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap">
                 Sobre
               </a>
-              <a
-                href="/#contato"
+              <Link
+                href="/contato"
                 className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap"
               >
                 Contato
-              </a>
+              </Link>
             </nav>
 
             {/* Ações - direita */}
             <div className="flex items-center justify-end gap-2 md:gap-3 lg:gap-4">
               <SearchDialog />
-              <Button variant="ghost" size="icon" className="text-white hover:text-accent hover:bg-white/10">
-                <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="sr-only">Carrinho</span>
-              </Button>
+              <CartSheet />
 
               {user ? (
                 <DropdownMenu>

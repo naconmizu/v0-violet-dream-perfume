@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { ShoppingCart, Heart, Share2, Sparkles } from "lucide-react"
+import { Heart, Share2, Sparkles } from "lucide-react"
 import Link from "next/link"
+import { AddToCartButton } from "@/components/add-to-cart-button"
 
 const fragrances = [
   {
@@ -273,6 +274,17 @@ export default function FragrancePage({ params }: { params: { slug: string } }) 
     notFound()
   }
 
+  const productForCart = {
+    id: fragrance.slug,
+    slug: fragrance.slug,
+    name: fragrance.name,
+    description: fragrance.description,
+    price: Number.parseInt(fragrance.price.replace(/[^\d]/g, "")),
+    priceFormatted: fragrance.price,
+    image: fragrance.image || "/placeholder.svg",
+    category: "Purple Soul",
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -310,10 +322,7 @@ export default function FragrancePage({ params }: { params: { slug: string } }) 
               </div>
 
               <div className="flex gap-3 pt-4">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground flex-1">
-                  <ShoppingCart className="w-5 h-5 mr-2" />
-                  Adicionar ao Carrinho
-                </Button>
+                <AddToCartButton product={productForCart} size="lg" className="flex-1" />
                 <Button size="lg" variant="outline" className="border-2 bg-transparent">
                   <Heart className="w-5 h-5" />
                 </Button>
@@ -418,10 +427,7 @@ export default function FragrancePage({ params }: { params: { slug: string } }) 
             Descubra a magia de {fragrance.name} e deixe-se envolver por esta fragrância única
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <ShoppingCart className="w-5 h-5 mr-2" />
-              Comprar Agora
-            </Button>
+            <AddToCartButton product={productForCart} size="lg" />
             <Button size="lg" variant="outline" asChild className="border-2 bg-transparent">
               <Link href="/#produtos">Ver Todas as Fragrâncias</Link>
             </Button>
