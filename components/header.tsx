@@ -86,13 +86,13 @@ export function Header() {
                     >
                       Sobre
                     </a>
-                    <a
-                      href="/#contato"
+                    <Link
+                      href="/contato"
                       className="text-base font-medium hover:text-accent transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       Contato
-                    </a>
+                    </Link>
                     {user && (
                       <>
                         <div className="border-t pt-6 mt-2" />
@@ -143,12 +143,12 @@ export function Header() {
               <a href="/#sobre" className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap">
                 Sobre
               </a>
-              <a
-                href="/#contato"
+              <Link
+                href="/contato"
                 className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap"
               >
                 Contato
-              </a>
+              </Link>
             </nav>
 
             {/* Ações - direita */}
