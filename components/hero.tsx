@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Sparkles } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-[120px]" style={{
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20" style={{
       background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 25%, hsl(305 35% 6%) 50%, hsl(305 40% 4%) 75%, hsl(305 32% 7%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
@@ -33,8 +34,22 @@ export function Hero() {
         <rect width="100%" height="100%" fill="url(#hero-pattern)"/>
       </svg>
       
-      <div className="container mx-auto px-4 py-32 relative z-10">
+      <div className="container mx-auto px-4 pt-8 pb-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Logo */}
+          <div className="mb-8 flex justify-center">
+            <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80">
+              <Image
+                src="/images/logo.png"
+                alt="Violet Dream Logo"
+                fill
+                className="object-contain drop-shadow-[0_4px_24px_rgba(212,175,55,0.3)]"
+                style={{ transform: "translateY(-100px)" }}
+                priority
+              />
+            </div>
+          </div>
+
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 text-accent mb-8">
             <Sparkles className="w-4 h-4" />
             <span className="text-sm font-medium">Coleção Exclusiva 2025</span>

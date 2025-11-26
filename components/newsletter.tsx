@@ -36,26 +36,30 @@ export function Newsletter() {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-primary via-primary/95 to-accent/80 text-primary-foreground relative overflow-hidden" style={{
-      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
+    <section className="py-24 text-primary-foreground relative overflow-hidden" style={{
+      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 25%, hsl(305 35% 6%) 50%, hsl(305 40% 4%) 75%, hsl(305 32% 7%) 100%)'
     }}>
-      {/* Padrão de grid decorativo */}
-      <div className="absolute inset-0 bg-pattern-grid opacity-10"></div>
+      {/* Padrão de fundo decorativo */}
+      <div className="absolute inset-0 bg-pattern-mesh opacity-40"></div>
       
-      {/* Efeitos de brilho animados */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+      {/* Padrão de grid sutil */}
+      <div className="absolute inset-0 bg-pattern-grid opacity-30"></div>
+      
+      {/* Efeitos de fundo decorativos animados */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/5 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/5 to-transparent"></div>
       </div>
       
       {/* Padrão SVG decorativo */}
-      <svg className="absolute inset-0 w-full h-full opacity-10" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="newsletter-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-            <circle cx="50" cy="50" r="2" fill="white" opacity="0.3"/>
-            <path d="M0 50 L100 50 M50 0 L50 100" stroke="white" strokeWidth="0.5" opacity="0.2"/>
-            <circle cx="25" cy="25" r="1" fill="white" opacity="0.4"/>
-            <circle cx="75" cy="75" r="1" fill="white" opacity="0.4"/>
+            <circle cx="50" cy="50" r="2" fill="currentColor" className="text-primary"/>
+            <path d="M0 50 L100 50 M50 0 L50 100" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.3"/>
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#newsletter-pattern)"/>

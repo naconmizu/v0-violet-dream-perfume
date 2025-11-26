@@ -3,27 +3,32 @@ import { Sparkles, Leaf, Award, Heart, Flower2, Gem } from "lucide-react"
 export function About() {
   return (
     <section id="sobre" className="py-24 relative overflow-hidden" style={{
-      // background: 'linear-gradient(135deg, hsl(305 35% 7%) 0%, hsl(305 30% 8%) 50%, hsl(305 40% 6%) 100%)'
-      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
-
+      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 25%, hsl(305 35% 6%) 50%, hsl(305 40% 4%) 75%, hsl(305 32% 7%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
-      <div className="absolute inset-0 bg-pattern-mesh opacity-50"></div>
-
-      {/* Padrão SVG decorativo floral */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.12]" xmlns="http://www.w3.org/2000/svg" style={{ pointerEvents: 'none' }}>
+      <div className="absolute inset-0 bg-pattern-mesh opacity-40"></div>
+      
+      {/* Padrão de grid sutil */}
+      <div className="absolute inset-0 bg-pattern-grid opacity-30"></div>
+      
+      {/* Efeitos de fundo decorativos animados */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/5 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/5 to-transparent"></div>
+      </div>
+      
+      {/* Padrão SVG decorativo */}
+      <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="about-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-            <circle cx="60" cy="60" r="3" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" />
-            <circle cx="30" cy="30" r="2" fill="hsl(var(--accent))" opacity="0.6" />
-            <circle cx="90" cy="90" r="2" fill="hsl(var(--accent))" opacity="0.6" />
-            <circle cx="30" cy="90" r="1.5" fill="hsl(var(--primary))" opacity="0.4" />
-            <circle cx="90" cy="30" r="1.5" fill="hsl(var(--primary))" opacity="0.4" />
-            <path d="M60 20 Q80 40 60 60 Q40 40 60 20" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.3" opacity="0.5" />
-            <path d="M20 60 Q40 80 60 60 Q40 40 20 60" fill="none" stroke="hsl(var(--accent))" strokeWidth="0.3" opacity="0.4" />
+          <pattern id="about-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+            <circle cx="50" cy="50" r="2" fill="currentColor" className="text-primary"/>
+            <path d="M0 50 L100 50 M50 0 L50 100" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.3"/>
           </pattern>
         </defs>
-        <rect width="100%" height="100%" fill="url(#about-pattern)" />
+        <rect width="100%" height="100%" fill="url(#about-pattern)"/>
       </svg>
 
       <div className="container mx-auto px-4 relative z-10">

@@ -78,15 +78,34 @@ export function GoldCollection() {
       id="colecao-dourada"
       className="py-24 relative overflow-hidden"
       style={{
-        background:
-          "linear-gradient(145deg, hsl(40 40% 12%) 0%, hsl(32 32% 8%) 60%, hsl(28 30% 6%) 100%)",
+        background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 25%, hsl(305 35% 6%) 50%, hsl(305 40% 4%) 75%, hsl(305 32% 7%) 100%)'
       }}
-      // style={{
-      //   background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 100%)'
-      // }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.08)_1px,_transparent_1px)] [background-size:70px_70px] opacity-40" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#f6d3650f] via-transparent to-[#a76b320d]" />
+      {/* Padrão de fundo decorativo */}
+      <div className="absolute inset-0 bg-pattern-mesh opacity-40"></div>
+      
+      {/* Padrão de grid sutil */}
+      <div className="absolute inset-0 bg-pattern-grid opacity-30"></div>
+      
+      {/* Efeitos de fundo decorativos animados */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/5 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/5 to-transparent"></div>
+      </div>
+      
+      {/* Padrão SVG decorativo */}
+      <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="gold-collection-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+            <circle cx="50" cy="50" r="2" fill="currentColor" className="text-primary"/>
+            <path d="M0 50 L100 50 M50 0 L50 100" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.3"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#gold-collection-pattern)"/>
+      </svg>
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">

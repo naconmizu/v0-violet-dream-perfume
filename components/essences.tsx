@@ -84,22 +84,29 @@ const essences = [
 export function Essences() {
   return (
     <section id="essencias" className="py-24 relative overflow-hidden" style={{
-      background: 'linear-gradient(180deg, hsl(305 30% 8%) 0%, hsl(305 35% 6%) 50%, hsl(305 30% 8%) 100%)'
+      background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 25%, hsl(305 35% 6%) 50%, hsl(305 40% 4%) 75%, hsl(305 32% 7%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
-      <div className="absolute inset-0 bg-pattern-dots opacity-20"></div>
+      <div className="absolute inset-0 bg-pattern-mesh opacity-40"></div>
       
-      {/* Efeitos de gradiente decorativos */}
-      <div className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/5 to-transparent"></div>
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/5 to-transparent"></div>
+      {/* Padrão de grid sutil */}
+      <div className="absolute inset-0 bg-pattern-grid opacity-30"></div>
+      
+      {/* Efeitos de fundo decorativos animados */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/8 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-accent/5 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/5 to-transparent"></div>
+      </div>
       
       {/* Padrão SVG decorativo */}
-      <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+      <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
         <defs>
-          <pattern id="essences-pattern" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-            <circle cx="40" cy="40" r="1.5" fill="currentColor" className="text-primary"/>
-            <circle cx="20" cy="20" r="1" fill="currentColor" className="text-accent"/>
-            <circle cx="60" cy="60" r="1" fill="currentColor" className="text-accent"/>
+          <pattern id="essences-pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+            <circle cx="50" cy="50" r="2" fill="currentColor" className="text-primary"/>
+            <path d="M0 50 L100 50 M50 0 L50 100" stroke="currentColor" strokeWidth="0.5" className="text-primary" opacity="0.3"/>
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#essences-pattern)"/>
