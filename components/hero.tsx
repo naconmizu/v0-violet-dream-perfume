@@ -44,7 +44,7 @@ export function Hero() {
                 alt="Violet Dream Logo"
                 fill
                 className="object-contain drop-shadow-[0_4px_24px_rgba(212,175,55,0.3)]"
-                style={{ transform: "translateY(-100px)" }}
+                style={{ transform: "translateY(-150px)" }}
                 priority
               />
             </div>
