@@ -1,13 +1,19 @@
 import { createTransport } from 'nodemailer'
 import { NextResponse } from 'next/server'
 
-// Create transporter once (re-using between requests)
+// Create transporter with improved Gmail configuration
 const transporter = createTransport({
     service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false, // true para 465, false para outras portas
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASSWORD,
     },
+    tls: {
+        rejectUnauthorized: false
+    }
 })
 
 export async function POST(req) {
@@ -29,6 +35,14 @@ export async function POST(req) {
         return NextResponse.json({ success: true, message: 'Email enviado com sucesso' })
     } catch (error) {
         console.error('Erro ao enviar email:', error)
-        return NextResponse.json({ success: false, message: 'Erro interno ao enviar email' }, { status: 500 })
+        
+        let errorMessage = 'Erro interno ao enviar email'
+        if (error.code === 'EAUTH') {
+            errorMessage = 'Erro de autenticação. Verifique se EMAIL_USER e EMAIL_PASSWORD estão corretos. Para Gmail, use uma App Password.'
+        } else if (error.message) {
+            errorMessage = error.message
+        }
+        
+        return NextResponse.json({ success: false, message: errorMessage }, { status: 500 })
     }
 }

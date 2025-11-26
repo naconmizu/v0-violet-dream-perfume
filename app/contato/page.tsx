@@ -12,6 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { useState } from "react"
 import { useToast } from "@/hooks/use-toast"
+import sendContactEmail from "@/app/util/sendContactEmail"
 
 export default function ContatoPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -36,40 +37,31 @@ export default function ContatoPage() {
     setIsSubmitting(true)
 
     try {
-      // Simula delay de envio
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      // Enviar emails (confirmação para cliente e notificação para empresa)
+      const result = await sendContactEmail(formData)
 
-      // Log da mensagem (em produção, seria enviada para um servidor)
-      console.log("[v0] Mensagem de contato recebida:", {
-        nome: formData.name,
-        email: formData.email,
-        telefone: formData.phone,
-        assunto: formData.subject,
-        mensagem: formData.message,
-        timestamp: new Date().toISOString(),
-      })
+      if (result && result.success) {
+        toast({
+          title: "Mensagem enviada com sucesso!",
+          description: "Recebemos sua mensagem e entraremos em contato em breve. Enviamos um email de confirmação para você.",
+        })
 
-      // Simula envio de email de boas-vindas
-      console.log("[v0] Email de boas-vindas enviado para:", formData.email)
-
-      toast({
-        title: "Mensagem enviada com sucesso!",
-        description: "Recebemos sua mensagem e entraremos em contato em breve. Enviamos um email de confirmação.",
-      })
-
-      // Limpa o formulário
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      })
+        // Limpa o formulário
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        })
+      } else {
+        throw new Error(result?.message || "Falha ao enviar mensagem")
+      }
     } catch (error) {
-      console.error("[v0] Erro ao processar mensagem:", error)
+      console.error("Erro ao processar mensagem:", error)
       toast({
         title: "Erro ao enviar mensagem",
-        description: "Por favor, tente novamente mais tarde.",
+        description: error instanceof Error ? error.message : "Por favor, tente novamente mais tarde.",
         variant: "destructive",
       })
     } finally {
