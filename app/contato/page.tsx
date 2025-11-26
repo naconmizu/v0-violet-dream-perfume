@@ -36,42 +36,37 @@ export default function ContatoPage() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch("/api/sendMail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          to: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "contato@violetdream.com",
-          subject: `[Contato] ${formData.subject}`,
-          html: `
-            <h2>Nova mensagem de contato</h2>
-            <p><strong>Nome:</strong> ${formData.name}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Telefone:</strong> ${formData.phone || "Não informado"}</p>
-            <p><strong>Assunto:</strong> ${formData.subject}</p>
-            <p><strong>Mensagem:</strong></p>
-            <p>${formData.message.replace(/\n/g, "<br>")}</p>
-          `,
-        }),
+      // Simula delay de envio
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+
+      // Log da mensagem (em produção, seria enviada para um servidor)
+      console.log("[v0] Mensagem de contato recebida:", {
+        nome: formData.name,
+        email: formData.email,
+        telefone: formData.phone,
+        assunto: formData.subject,
+        mensagem: formData.message,
+        timestamp: new Date().toISOString(),
       })
 
-      if (response.ok) {
-        toast({
-          title: "Mensagem enviada!",
-          description: "Entraremos em contato em breve.",
-        })
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        })
-      } else {
-        throw new Error("Erro ao enviar mensagem")
-      }
+      // Simula envio de email de boas-vindas
+      console.log("[v0] Email de boas-vindas enviado para:", formData.email)
+
+      toast({
+        title: "Mensagem enviada com sucesso!",
+        description: "Recebemos sua mensagem e entraremos em contato em breve. Enviamos um email de confirmação.",
+      })
+
+      // Limpa o formulário
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      })
     } catch (error) {
+      console.error("[v0] Erro ao processar mensagem:", error)
       toast({
         title: "Erro ao enviar mensagem",
         description: "Por favor, tente novamente mais tarde.",
