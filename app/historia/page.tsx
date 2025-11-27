@@ -36,20 +36,20 @@ export default function HistoriaPage() {
       {/* Conteúdo da história */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto space-y-16">
-          {/* Origem
+          {/* Origem */}
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif text-primary">O Início de um Sonho</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            {/* <p className="text-lg text-muted-foreground leading-relaxed">
               Tudo começou em 2018, quando a perfumista Helena Violet descobriu um pequeno pomar de ameixeiras roxas nas
               montanhas do interior. Fascinada pela intensidade e complexidade aromática dessas frutas, ela teve uma
               visão: criar perfumes que capturassem a essência mágica das frutas roxas da natureza.
-            </p>
+            </p> */}
             <p className="text-lg text-muted-foreground leading-relaxed">
               Durante meses, Helena viajou pelo país em busca das melhores jabuticabas, uvas e ameixas, estudando cada
               nuance de seus aromas. Ela percebeu que essas frutas compartilhavam algo especial: uma profundidade
               misteriosa que evocava sonhos e memórias.
             </p>
-          </div> */}
+          </div>
 
           {/* Filosofia */}
           <div className="bg-accent/10 rounded-2xl p-8 md:p-12">
@@ -57,11 +57,11 @@ export default function HistoriaPage() {
               <Heart className="w-8 h-8 text-accent" />
               <h2 className="text-3xl md:text-4xl font-serif text-primary">Nossa Filosofia</h2>
             </div>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+            {/* <p className="text-lg text-muted-foreground leading-relaxed mb-4">
               Na Violet Dream, acreditamos que a perfumaria é uma forma de arte que conecta as pessoas com a natureza e
               consigo mesmas. Cada fragrância é criada com ingredientes 100% naturais, respeitando o meio ambiente e as
               comunidades locais que cultivam nossas frutas.
-            </p>
+            </p> */}
             <p className="text-lg text-muted-foreground leading-relaxed">
               Trabalhamos diretamente com pequenos produtores orgânicos, garantindo que cada fruta seja colhida no
               momento perfeito de maturação, quando seus óleos essenciais estão mais concentrados e aromáticos.
@@ -90,12 +90,12 @@ export default function HistoriaPage() {
           <div className="bg-primary/10 rounded-2xl p-8 md:p-12">
             <div className="flex items-center gap-3 mb-6">
               <Award className="w-8 h-8 text-accent" />
-              <h2 className="text-3xl md:text-4xl font-serif text-primary">Reconhecimento Internacional</h2>
+              <h2 className="text-3xl md:text-4xl font-serif text-primary">Reconhecimento Nacional</h2>
             </div>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-4">
+            {/* <p className="text-lg text-muted-foreground leading-relaxed mb-4">
               Em apenas cinco anos, a Violet Dream conquistou diversos prêmios internacionais de perfumaria, incluindo o
               prestigioso "Golden Essence Award" em Paris e o "Natural Perfume Excellence" em Londres.
-            </p>
+            </p> */}
             <p className="text-lg text-muted-foreground leading-relaxed">
               Hoje, nossas fragrâncias são apreciadas por milhares de pessoas ao redor do mundo que buscam perfumes
               únicos, naturais e que contam histórias. Mas nossa essência permanece a mesma: criar sonhos em forma de
