@@ -6,117 +6,25 @@ import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import { useCart } from "@/contexts/cart-context"
 import { useToast } from "@/hooks/use-toast"
+import { perfumes } from "@/lib/perfumes"
 
-const products = [
-  {
-    name: "Ameixa Noir",
-    description: "Notas profundas de ameixa preta com toque de baunilha",
-    price: "R$ 289,00",
-    image: "/purple-plum-perfume-bottle-elegant-gold-details.jpg",
-    slug: "ameixa-noir",
-  },
-  {
-    name: "Jabuticaba Mystique",
-    description: "Essência brasileira com acordes amadeirados",
-    price: "R$ 329,00",
-    image: "/jabuticaba-perfume-bottle-luxury-purple-gold.jpg",
-    slug: "jabuticaba-mystique",
-  },
-  {
-    name: "Uva Velvet",
-    description: "Frescor das uvas com notas florais delicadas",
-    price: "R$ 269,00",
-    image: "/grape-perfume-bottle-elegant-violet-gold-accents.jpg",
-    slug: "uva-velvet",
-  },
-  {
-    name: "Figo Roxo Imperial",
-    description: "Fragrância sofisticada com notas de figo roxo e especiarias orientais",
-    price: "R$ 349,00",
-    image: "/elegant-purple-fig-perfume-bottle-with-gold-detail.jpg",
-    slug: "figo-roxo-imperial",
-  },
-  {
-    name: "Amora Sublime",
-    description: "Essência intensa de amora silvestre com toques de rosa búlgara",
-    price: "R$ 309,00",
-    image: "/blackberry-perfume-bottle-purple-gold-luxury.jpg",
-    slug: "amora-sublime",
-  },
-  {
-    name: "Acaí Nebular",
-    description: "Essência vibrante que combina doçura tropical com notas terrosas.",
-    price: "R$ 203,00",
-    image: "/perfumeFei.png",
-    slug: "acai-nebular",
-  },
-  {
-    name: "Mirtilo Élégant",
-    description: "Fragrância refrescante com notas delicadas de mirtilo e acordes florais",
-    price: "R$ 279,00",
-    image: "/mirtiloFei.jpeg",
-    slug: "mirtilo-elegant",
-  },
-  {
-    name: "Cereja Roxa Romântica",
-    description: "Perfume feminino e sofisticado com notas suaves de cereja roxa e pétalas",
-    price: "R$ 299,00",
-    image: "/purple-cherry-perfume-bottle-romantic.jpg",
-    slug: "cereja-roxo-romantica",
-  },
-  {
-    name: "Groselha Negra Noir",
-    description: "Essência intensa e marcante com profundidade e caráter único",
-    price: "R$ 319,00",
-    image: "/black-currant-perfume-bottle-luxury.jpg",
-    slug: "groselha-negra-noir",
-  },
-  {
-    name: "Ameixa Seca Royal",
-    description: "Fragrância rica e complexa com notas concentradas e elegantes",
-    price: "R$ 339,00",
-    image: "/ameixaFeia.jpg",
-    slug: "ameixa-seca-royal",
-  },
-  {
-    name: "Sabugueiro Mystic",
-    description: "Perfume exótico e memorável com notas florais e frutadas únicas",
-    price: "R$ 289,00",
-    image: "/sabugoFei.jpg",
-    slug: "sabugueiro-mystic",
-  },
-  {
-    name: "Aronia Power",
-    description: "Essência energética e vibrante com notas intensas e antioxidantes",
-    price: "R$ 259,00",
-    image: "/aronia-perfume-bottle-power.jpg",
-    slug: "aronia-power",
-  },
-  // {
-  //   name: "Mirtilo Vermelho Fresh",
-  //   description: "Fragrância fresca e vivaz com combinação única de doçura e acidez",
-  //   price: "R$ 249,00",
-  //   image: "/cranberry-perfume-bottle-fresh.jpg",
-  //   slug: "mirtilo-vermelho-fresh",
-  // },
-]
+const featuredProducts = perfumes.filter((perfume) => perfume.collections?.includes("Purple Soul"))
 
 export function FeaturedProducts() {
   const { addToCart } = useCart()
   const { toast } = useToast()
 
-  const handleAddToCart = (product: (typeof products)[0], e: React.MouseEvent) => {
+  const handleAddToCart = (product: (typeof featuredProducts)[0], e: React.MouseEvent) => {
     e.preventDefault() // Previne navegação do Link
     e.stopPropagation()
 
-    const priceInCents = Number.parseInt(product.price.replace(/[^\d]/g, ""))
     addToCart({
-      id: product.slug,
+      id: product.id,
       slug: product.slug,
       name: product.name,
       description: product.description,
-      price: priceInCents,
-      priceFormatted: product.price,
+      price: product.price,
+      priceFormatted: product.priceFormatted,
       image: product.image,
       category: "Purple Soul",
     })
@@ -182,8 +90,8 @@ export function FeaturedProducts() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
-            <Link key={index} href={`/fragrancia/${product.slug}`}>
+          {featuredProducts.map((product) => (
+            <Link key={product.id} href={`/fragrancia/${product.slug}`}>
               <Card className="group overflow-hidden border-2 border-border hover:border-primary/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 cursor-pointer bg-card">
                 <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10">
                   <img
@@ -203,16 +111,24 @@ export function FeaturedProducts() {
                   </p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                      {product.price}
+                    {product.priceFormatted}
                     </span>
                     <AddToCartButton
                       product={{
-                        id: product.slug,
+                        fixid: product.slug,
                         slug: product.slug,
                         name: product.name,
                         description: product.description,
-                        price: Number.parseInt(product.price.replace(/[^\d]/g, "")),
-                        priceFormatted: product.price,
+                        price: typeof product.price === "string"
+                          ? Number.parseInt(product.price.replace(/[^\d]/g, ""))
+                          : product.price,
+                        priceFormatted:
+                          typeof product.price === "number"
+                            ? product.price.toLocaleString("pt-BR", {
+                                style: "currency",
+                                currency: "BRL",
+                              })
+                            : product.price,
                         image: product.image,
                         category: "Purple Soul",
                       }}

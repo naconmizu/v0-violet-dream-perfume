@@ -1,25 +1,56 @@
 import { createTransport } from 'nodemailer'
 import { NextResponse } from 'next/server'
 
+const smtpUser = process.env.EMAIL_USER || process.env.HOTMAIL_USER
+const smtpPass = process.env.EMAIL_PASSWORD || process.env.HOTMAIL_PASSWORD
+
 // Validação das variáveis de ambiente
-if (!process.env.EMAIL_USER || !process.env.EMAIL_PASSWORD) {
-    console.error('⚠️ EMAIL_USER e EMAIL_PASSWORD devem estar configuradas no .env.local')
+if (!smtpUser || !smtpPass) {
+    console.error('⚠️ Configure EMAIL_USER/HOTMAIL_USER e EMAIL_PASSWORD/HOTMAIL_PASSWORD no .env.local')
 }
 
-// Create transporter with improved Gmail configuration
+// Transporter configurado para Hotmail/Outlook
 const transporter = createTransport({
-    service: 'gmail',
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false, // true para 465, false para outras portas
+    host: process.env.SMTP_HOST || 'smtp.office365.com',
+    port: Number(process.env.SMTP_PORT) || 587,
+    secure: false, // Outlook exige STARTTLS na porta 587
+    requireTLS: true,
+    authMethod: process.env.SMTP_AUTH_METHOD || 'PLAIN',
     auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASSWORD,
+        user: smtpUser,
+        pass: smtpPass,
     },
     tls: {
-        rejectUnauthorized: false
-    }
+        rejectUnauthorized: process.env.SMTP_REJECT_UNAUTHORIZED !== 'false'
+    },
+    connectionTimeout: Number(process.env.SMTP_CONNECTION_TIMEOUT) || 20_000,
+    socketTimeout: Number(process.env.SMTP_SOCKET_TIMEOUT) || 20_000,
+    pool: true,
+    maxConnections: 1,
 })
+
+const RETRYABLE_SMTP_ERRORS = new Set(['ETIMEDOUT', 'ECONNECTION', 'ESOCKET', 'ETIMEDOUT', 'ECONNRESET'])
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+
+async function sendMailWithRetry(mailOptions, attempts = Number(process.env.SMTP_MAX_ATTEMPTS) || 2) {
+    let lastError
+    for (let attempt = 1; attempt <= attempts; attempt++) {
+        try {
+            return await transporter.sendMail(mailOptions)
+        } catch (error) {
+            lastError = error
+            const shouldRetry = RETRYABLE_SMTP_ERRORS.has(error.code)
+            if (!shouldRetry || attempt === attempts) {
+                throw error
+            }
+            const backoff = (Number(process.env.SMTP_RETRY_BACKOFF_MS) || 1000) * attempt
+            console.warn(`Tentativa ${attempt} falhou (${error.code}). Repetindo em ${backoff}ms...`)
+            await sleep(backoff)
+        }
+    }
+    throw lastError
+}
 
 export async function POST(req) {
     try {
@@ -33,7 +64,7 @@ export async function POST(req) {
             }, { status: 400 })
         }
 
-        const contactEmail = process.env.CONTACT_EMAIL || process.env.EMAIL_USER || 'contato@violetdream.com'
+        const contactEmail = process.env.HOTMAIL_RECIPIENT || process.env.CONTACT_EMAIL || smtpUser || 'contato@hotmail.com'
 
         // Email de confirmação para o cliente
         const confirmationEmail = {
@@ -109,8 +140,8 @@ export async function POST(req) {
 
         // Enviar ambos os emails
         const [confirmationResult, notificationResult] = await Promise.allSettled([
-            transporter.sendMail(confirmationEmail),
-            transporter.sendMail(notificationEmail),
+            sendMailWithRetry(confirmationEmail),
+            sendMailWithRetry(notificationEmail),
         ])
 
         // Verificar resultados
@@ -121,9 +152,11 @@ export async function POST(req) {
             // Mensagens de erro mais específicas
             let errorMessage = 'Erro ao enviar email de confirmação'
             if (error.code === 'EAUTH') {
-                errorMessage = 'Erro de autenticação. Verifique se EMAIL_USER e EMAIL_PASSWORD estão corretos no .env.local. Para Gmail, use uma App Password (não a senha normal).'
+                errorMessage = 'Erro de autenticação. Verifique o usuário e a senha configurados (EMAIL_USER/HOTMAIL_USER + EMAIL_PASSWORD/HOTMAIL_PASSWORD). Em contas Hotmail/Outlook, habilite a verificação em duas etapas e gere uma senha de app.'
             } else if (error.code === 'ECONNECTION') {
                 errorMessage = 'Erro de conexão com o servidor de email. Verifique sua conexão com a internet.'
+            } else if (error.code === 'ETIMEDOUT') {
+                errorMessage = 'Tempo limite ao conectar no servidor Outlook (porta 587). Verifique sua conexão e se o firewall libera smtp.office365.com.'
             } else if (error.response) {
                 errorMessage = `Erro do servidor: ${error.response}`
             }
@@ -149,7 +182,9 @@ export async function POST(req) {
         
         let errorMessage = 'Erro interno ao processar contato'
         if (error.code === 'EAUTH') {
-            errorMessage = 'Erro de autenticação. Verifique as credenciais de email no .env.local. Para Gmail, você precisa usar uma App Password.'
+            errorMessage = 'Erro de autenticação. Confirme EMAIL_USER/HOTMAIL_USER e EMAIL_PASSWORD/HOTMAIL_PASSWORD. Em provedores como Hotmail/Outlook, utilize uma senha de app válida ou habilite SMTP AUTH.'
+        } else if (error.code === 'ETIMEDOUT') {
+            errorMessage = 'Tempo limite na conexão com o Outlook/Hotmail. Verifique firewall, VPN ou bloqueios de porta 587.'
         } else if (error.message) {
             errorMessage = error.message
         }

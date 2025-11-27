@@ -36,7 +36,7 @@ export default function HistoriaPage() {
       {/* Conteúdo da história */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto space-y-16">
-          {/* Origem */}
+          {/* Origem
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-serif text-primary">O Início de um Sonho</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -49,7 +49,7 @@ export default function HistoriaPage() {
               nuance de seus aromas. Ela percebeu que essas frutas compartilhavam algo especial: uma profundidade
               misteriosa que evocava sonhos e memórias.
             </p>
-          </div>
+          </div> */}
 
           {/* Filosofia */}
           <div className="bg-accent/10 rounded-2xl p-8 md:p-12">

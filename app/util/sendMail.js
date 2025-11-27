@@ -7,6 +7,7 @@ const sendEmail = async (email) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                from:process.env.EMAIL_USER ||"violet dream",
                 to: email,
                 subject: 'Obrigado por se inscrever',
                 html: `<p>Obrigado por se inscrever em nossa newsletter: <strong>${email}</strong></p>`,
