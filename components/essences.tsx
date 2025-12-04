@@ -38,7 +38,7 @@ const essences = [
     image: "/blackberry-fruit-botanical-illustration-purple.jpg",
   },
   // {
-  //   fruit: "Mirtilo",
+  //   fruit: "Mirtilo",  
   //   description: "Fruta delicada com notas refrescantes e levemente ácidas, trazendo sofisticação e elegância.",
   //   color: "from-[#4A1F45] to-[#6B2D66]",
   //   image: "/blueberry-fruit-botanical-illustration-purple.jpg",

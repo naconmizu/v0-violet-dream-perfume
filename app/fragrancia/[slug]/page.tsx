@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Heart, Share2, Sparkles } from "lucide-react"
+import InteractiveControls from "@/components/fragrance-controls"
+import BackButton from "@/components/back-button"
 import { AddToCartButton } from "@/components/add-to-cart-button"
 import { Button } from "@/components/ui/button"
 import type { Perfume } from "@/lib/perfumes"
@@ -427,8 +429,11 @@ export default async function FragrancePage({ params }: { params: Promise<{ slug
 
   return (
     <div className="min-h-screen">
+      {/* Fixed back button in the top-left corner */}
+      <BackButton />
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/5 to-primary/5">
+        {/* Note: top-left duplicate controls removed; controls rendered in the info area below */}
         <div className="container mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Image */}
@@ -461,14 +466,12 @@ export default async function FragrancePage({ params }: { params: Promise<{ slug
                 <span className="text-sm text-muted-foreground">50ml Eau de Parfum</span>
               </div>
 
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-3 pt-4 items-center">
                 <AddToCartButton product={productForCart} size="lg" className="flex-1" />
-                <Button size="lg" variant="outline" className="border-2 bg-transparent">
-                  <Heart className="w-5 h-5" />
-                </Button>
-                <Button size="lg" variant="outline" className="border-2 bg-transparent">
-                  <Share2 className="w-5 h-5" />
-                </Button>
+                {/* Use the client InteractiveControls here instead of the two simple buttons */}
+                <div className="flex-none">
+                  <InteractiveControls perfumeName={perfume.name} />
+                </div>
               </div>
             </div>
           </div>
