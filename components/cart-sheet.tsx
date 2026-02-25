@@ -27,7 +27,13 @@ export function CartSheet() {
           <span className="sr-only">Carrinho</span>
         </Button>
       </SheetTrigger>
-      <SheetContent className="w-full sm:max-w-lg flex flex-col">
+      <SheetContent 
+        className="w-full sm:max-w-lg flex flex-col"
+        style={{
+          backgroundColor: 'hsl(305, 43%, 20%)',
+          color: 'hsl(0, 0%, 98%)'
+        }}
+      >
         <SheetHeader>
           <SheetTitle className="flex items-center gap-2">
             <ShoppingBag className="w-5 h-5" />
