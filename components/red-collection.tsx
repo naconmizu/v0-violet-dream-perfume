@@ -40,13 +40,35 @@ const redFragrances = [
   {
     name: "Hibisco Rubro",
     description:
-      "Flores de hibisco e rosa damascena infundidas em chá preto defumado criam um perfume artístico e ousado.",
-    highlight: "Floral âmbar",
-    essences: ["Hibisco Carmim", "Rosa Damascena", "Chá Preto"],
+      "Flores de hibisco e rosa damascena infundidas em cha preto defumado criam um perfume artistico e ousado.",
+    highlight: "Floral ambar",
+    essences: ["Hibisco Carmim", "Rosa Damascena", "Cha Preto"],
     color: "from-[#3e0810] via-[#1e0307] to-[#080104]",
     image: "/RedCollection/hibiscus-ruby-perfume.jpg",
     price: "R$ 339,00",
     slug: "hibisco-rubro",
+  },
+  {
+    name: "Cereja Negra Veludo",
+    description:
+      "Cereja negra aveludada com acordes de chocolate amargo e rosa turca para uma experiencia sensorial unica.",
+    highlight: "Gourmand sensual",
+    essences: ["Cereja Negra", "Chocolate Amargo", "Rosa Turca"],
+    color: "from-[#4d0915] via-[#2d0408] to-[#0e0103]",
+    image: "/red-cherry-perfume-passion.jpg",
+    price: "R$ 359,00",
+    slug: "cereja-negra-veludo",
+  },
+  {
+    name: "Morango Imperial",
+    description:
+      "Morango suculento com peonia rosa e acorde de champanhe delicado para frescor elegante.",
+    highlight: "Frutado efervescente",
+    essences: ["Morango Maduro", "Peonia Rosa", "Champanhe Rose"],
+    color: "from-[#5a0d19] via-[#32060c] to-[#120204]",
+    image: "/red-strawberry-perfume-vibrant.jpg",
+    price: "R$ 319,00",
+    slug: "morango-imperial",
   },
 ]
 

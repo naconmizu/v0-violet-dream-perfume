@@ -2,7 +2,7 @@ import { Instagram, Facebook, Mail } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12 relative overflow-hidden" style={{
+    <footer role="contentinfo" aria-label="Rodape do site" className="border-t border-border py-12 relative overflow-hidden" style={{
       background: 'linear-gradient(135deg, hsl(305 32% 7%) 0%, hsl(305 38% 5%) 25%, hsl(305 35% 6%) 50%, hsl(305 40% 4%) 75%, hsl(305 32% 7%) 100%)'
     }}>
       {/* Padrão de fundo decorativo */}
@@ -101,18 +101,21 @@ export function Footer() {
               <a
                 href="#"
                 className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                aria-label="Siga-nos no Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                aria-label="Siga-nos no Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </a>
               <a
                 href="#"
                 className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                aria-label="Envie-nos um email"
               >
                 <Mail className="w-5 h-5" />
               </a>
