@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display, Inter } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+
 import { ThemeProvider } from "@/components/theme-provider"
 import { AuthProvider } from "@/contexts/auth-context"
 import { CartProvider } from "@/contexts/cart-context"
@@ -36,7 +36,7 @@ export default function RootLayout({
             <CartProvider>{children}</CartProvider>
           </AuthProvider>
         </ThemeProvider>
-        <Analytics />
+
       </body>
     </html>
   )

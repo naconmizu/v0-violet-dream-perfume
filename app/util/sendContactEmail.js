@@ -31,4 +31,3 @@ const sendContactEmail = async (formData) => {
 }
 
 export default sendContactEmail
-

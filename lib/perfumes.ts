@@ -390,4 +390,3 @@ export const perfumes: Perfume[] = [
     collections: ["Red Bloom"],
   },
 ]
-

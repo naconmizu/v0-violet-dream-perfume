@@ -22,11 +22,11 @@ Se você está recebendo o erro `535-5.7.8 Username and Password not accepted`, 
 
 Crie ou edite o arquivo `.env.local` na raiz do projeto:
 
-```env
+\`\`\`env
 EMAIL_USER=seu-email@gmail.com
 EMAIL_PASSWORD=xxxx xxxx xxxx xxxx
 CONTACT_EMAIL=contato@violetdream.com
-```
+\`\`\`
 
 **Importante:**
 - Use o **email completo** (com @gmail.com)
@@ -37,16 +37,16 @@ CONTACT_EMAIL=contato@violetdream.com
 
 Após configurar, reinicie o servidor de desenvolvimento:
 
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 ## Alternativas ao Gmail
 
 Se preferir usar outro provedor de email, ajuste a configuração em `app/api/contact/route.js`:
 
 ### Outlook/Hotmail
-```javascript
+\`\`\`javascript
 const transporter = createTransport({
     service: 'hotmail',
     auth: {
@@ -54,10 +54,10 @@ const transporter = createTransport({
         pass: process.env.EMAIL_PASSWORD,
     },
 })
-```
+\`\`\`
 
 ### SMTP Personalizado
-```javascript
+\`\`\`javascript
 const transporter = createTransport({
     host: 'smtp.seu-provedor.com',
     port: 587,
@@ -67,7 +67,7 @@ const transporter = createTransport({
         pass: process.env.EMAIL_PASSWORD,
     },
 })
-```
+\`\`\`
 
 ## Testando a Configuração
 
@@ -78,4 +78,3 @@ Após configurar, teste enviando uma mensagem pelo formulário de contato. Se ai
 3. ✅ O email está completo (com @gmail.com)
 4. ✅ A verificação em duas etapas está ativada
 5. ✅ O servidor foi reiniciado após alterar o `.env.local`
-
