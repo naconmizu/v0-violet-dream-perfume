@@ -1,14 +1,39 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import { Button } from "@/components/ui/button"
-import { Accessibility, Type, ZoomIn, ZoomOut, Moon, Sun, Contrast, RotateCcw, X } from "lucide-react"
+import { Accessibility, Type, ZoomIn, ZoomOut, Contrast, RotateCcw, X } from "lucide-react"
 
 export function AccessibilityWidget() {
   const [isOpen, setIsOpen] = useState(false)
   const [fontSize, setFontSize] = useState(100)
   const [highContrast, setHighContrast] = useState(false)
   const [reducedMotion, setReducedMotion] = useState(false)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
+  const handleClose = useCallback(() => setIsOpen(false), [])
+
+  useEffect(() => {
+    if (!isOpen) return
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        panelRef.current && !panelRef.current.contains(e.target as Node) &&
+        buttonRef.current && !buttonRef.current.contains(e.target as Node)
+      ) {
+        handleClose()
+      }
+    }
+    function handleEscape(e: KeyboardEvent) {
+      if (e.key === "Escape") handleClose()
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("keydown", handleEscape)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener("keydown", handleEscape)
+    }
+  }, [isOpen, handleClose])
 
   useEffect(() => {
     document.documentElement.style.fontSize = `${fontSize}%`
@@ -44,7 +69,8 @@ export function AccessibilityWidget() {
       {/* Botao flutuante */}
       <div className="fixed bottom-6 left-6 z-[100]">
         <Button
-          onClick={() => setIsOpen(!isOpen)}
+          ref={buttonRef}
+          onClick={() => setIsOpen((prev) => !prev)}
           className="w-12 h-12 rounded-full bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-[#1a0618] shadow-lg shadow-[#D4AF37]/30 transition-all duration-300 hover:scale-110"
           aria-label={isOpen ? "Fechar painel de acessibilidade" : "Abrir painel de acessibilidade"}
           aria-expanded={isOpen}
@@ -57,6 +83,7 @@ export function AccessibilityWidget() {
       {/* Painel de acessibilidade */}
       {isOpen && (
         <div
+          ref={panelRef}
           id="accessibility-panel"
           role="dialog"
           aria-label="Opcoes de acessibilidade"
