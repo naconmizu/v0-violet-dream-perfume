@@ -133,6 +133,41 @@
   }
 }
 
+/* Accessibility: High Contrast Mode */
+.high-contrast {
+  --foreground: 0 0% 100%;
+  --background: 0 0% 0%;
+  --muted-foreground: 0 0% 85%;
+  --primary: 305 60% 60%;
+  --accent: 45 100% 55%;
+  --border: 0 0% 50%;
+}
+
+.high-contrast * {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.high-contrast img {
+  filter: contrast(1.2);
+}
+
+/* Accessibility: Reduced Motion */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* Accessibility: Focus visible styles */
+*:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 @layer utilities {
   .bg-pattern-grid {
     background-image: 
