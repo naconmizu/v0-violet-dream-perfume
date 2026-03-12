@@ -110,7 +110,7 @@ export default function ProfilePage() {
               <CardContent>
                 <p className="text-muted-foreground text-sm">Você ainda não tem produtos favoritos.</p>
                 <Button className="mt-4 w-full bg-transparent" variant="outline">
-                  Descobrir Fragrâncias
+                    Descobrir Fragrâncias
                 </Button>
               </CardContent>
             </Card>

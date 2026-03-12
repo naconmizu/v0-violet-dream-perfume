@@ -36,47 +36,71 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
-      // Simulate API call
-      const users = JSON.parse(localStorage.getItem("violet_dream_users") || "[]")
-      const foundUser = users.find((u: any) => u.email === email && u.password === password)
+      const response = await fetch("https://av2back-production.up.railway.app/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      })
 
-      if (foundUser) {
-        const { password: _, ...userWithoutPassword } = foundUser
-        setUser(userWithoutPassword)
-        localStorage.setItem("violet_dream_user", JSON.stringify(userWithoutPassword))
+      if (response.ok) {
+        const data = await response.json()
+        // Assuming the API returns user data or token
+        // Adjust based on actual API response
+        const userData = {
+          id: data.id || data.userId,
+          name: data.name,
+          email: data.email,
+          createdAt: data.createdAt,
+        }
+        setUser(userData)
+        localStorage.setItem("violet_dream_user", JSON.stringify(userData))
+        // If there's a token, store it too
+        if (data.token) {
+          localStorage.setItem("violet_dream_token", data.token)
+        }
         return true
+      } else {
+        return false
       }
-      return false
     } catch (error) {
       console.error("Login error:", error)
       return false
     }
   }
 
-  const register = async (name: string, email: string, password: string): Promise<boolean> => {
+  const register = async (nome: string, email: string, password: string): Promise<boolean> => {
     try {
-      const users = JSON.parse(localStorage.getItem("violet_dream_users") || "[]")
+      const response = await fetch("https://av2back-production.up.railway.app/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ nome, email, password }),
+      })
+      console.log("Register response:", response)
 
-      // Check if user already exists
-      if (users.some((u: any) => u.email === email)) {
+      if (response.ok) {
+        const data = await response.json()
+        // Assuming the API returns user data or token
+        // Adjust based on actual API response
+        const userData = {
+          id: data.id || data.userId,
+          name: data.name,
+          email: data.email,
+          createdAt: data.createdAt,
+        }
+        setUser(userData)
+        localStorage.setItem("violet_dream_user", JSON.stringify(userData))
+        // If there's a token, store it too
+        if (data.token) {
+          localStorage.setItem("violet_dream_token", data.token)
+        }
+        return true
+      } else {
         return false
       }
-
-      const newUser = {
-        id: Math.random().toString(36).substr(2, 9),
-        name,
-        email,
-        password,
-        createdAt: new Date().toISOString(),
-      }
-
-      users.push(newUser)
-      localStorage.setItem("violet_dream_users", JSON.stringify(users))
-
-      const { password: _, ...userWithoutPassword } = newUser
-      setUser(userWithoutPassword)
-      localStorage.setItem("violet_dream_user", JSON.stringify(userWithoutPassword))
-      return true
     } catch (error) {
       console.error("Register error:", error)
       return false
@@ -86,6 +110,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = () => {
     setUser(null)
     localStorage.removeItem("violet_dream_user")
+    localStorage.removeItem("violet_dream_token")
     router.push("/")
   }
 

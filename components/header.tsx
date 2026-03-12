@@ -126,7 +126,7 @@ export function Header() {
                       className="text-base font-medium hover:text-accent transition-colors"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      Body Splash
+                      Kits e Body Splash
                     </a>
                     <a
                       href="/#essencias"
@@ -202,7 +202,7 @@ export function Header() {
                 href="/#body-splash"
                 className="text-sm text-white/90 hover:text-accent transition-colors whitespace-nowrap"
               >
-                Body Splash
+                Kits e Body Splash
               </a>
               <a
                 href="/#essencias"

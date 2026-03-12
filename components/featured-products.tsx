@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useCart } from "@/contexts/cart-context"
 import { useToast } from "@/hooks/use-toast"
 import { perfumes } from "@/lib/perfumes"
+import InteractiveControls from "./fragrance-controls"
 
 const featuredProducts = perfumes.filter((perfume) => perfume.collections?.includes("Purple Soul"))
 
@@ -113,6 +114,7 @@ export function FeaturedProducts() {
                     <span className="text-2xl font-semibold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                     {product.priceFormatted}
                     </span>
+                    <InteractiveControls perfumeName={product.name} />
                     <AddToCartButton
                       product={{
                         fixid: product.slug,
